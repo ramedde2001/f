@@ -25,7 +25,67 @@ div {
 <Button id="btn">ابحث</Button>
 <div id="pesp"></div>
 <div id="resp"></div>
-
+<script>
+var bu=document.getElementById("btn")
+bu.addEventListener("click",serch)
+function rovove(res)
+{var child = res.lastElementChild; 
+while (child) { 
+            res.removeChild(child); 
+            child = res.lastElementChild; 
+        } 
+		}
+function serch()
+{
+var st=document.getElementById("srt")
+console.log(st.value)
+var res=document.getElementById("resp")
+var pes=document.getElementById("pesp")
+rovove(res)
+rovove(pes)
+var xhr = new XMLHttpRequest();
+	xhr.onload = function(e) {
+	document.getElementById("img").style.display = "none";
+        if (this.readyState === 4) {
+           
+			var json=JSON.parse(e.target.responseText);
+			console.log(json.results)
+			var res=document.getElementById("resp")
+			var pes=document.getElementById("pesp")
+			for(i=0;i<json.results.length;i++)
+			{
+			
+			var btn = document.createElement("Div");
+			btn.style.border = " solid #0000FF"
+			btn.id=json.results[i].id
+	// Create a <button> element
+			btn.innerHTML = json.results[i].text+"<br><br>";                   // Insert text
+			res.appendChild(btn);  
+			
+			}
+			for(i=0;i<json.results.length;i++)
+			{
+			
+			var btn = document.createElement("Div"); 
+			var a = document.createElement('a');
+			var txt=document.createTextNode("الانتقال للقرار");
+			a.appendChild(txt);
+			a.href = "#"+json.results[i].id
+			
+btn.innerHTML = json.results[i].highlight.text+"<br><br>"; 
+btn.appendChild(a)                 // Insert text
+pes.appendChild(btn);  
+			
+			}
+			
+        }
+    };
+	
+	xhr.open("GET", "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/2513799b-9d19-40ab-b66d-053d045afb4f/v1/environments/0d630b27-86da-4b56-b899-2945feb51293/collections/d704429d-0d6d-47f1-b090-c1c33786fa74/query?version=2018-12-03&deduplicate=false&highlight=true&passages=true&passages.count=5&highlight=true&natural_language_query="+st.value);
+xhr.setRequestHeader("Authorization", "Basic " + btoa("apikey:eE2buJm65mc_FtHzbhlV0M-sgrnp8cGuLrsrLCxZoPvo"));
+xhr.send()
+}
+</script>
 
 	
  <a href='https://www.free-counters.org/'>free Hit Counter</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a273e863297153e87afb32004e966d3e02cb6b51'></script>
