@@ -16,7 +16,10 @@ div {
 </style>
 </head>
 <body>
-
+<img id="img" src="juris.jpg" alt="Smiley face" height="300" width="300">
+<br>
+ البحث الشامل عن الاجتهاد القضائي الجزائري
+<br>
 <input id="srt" / >
 <br>
 <Button id="btn">ابحث</Button>
@@ -43,10 +46,11 @@ rovove(res)
 rovove(pes)
 var xhr = new XMLHttpRequest();
 	xhr.onload = function(e) {
+	document.getElementById("img").style.display = "none";
         if (this.readyState === 4) {
            
 			var json=JSON.parse(e.target.responseText);
-			
+			console.log(json.results)
 			var res=document.getElementById("resp")
 			var pes=document.getElementById("pesp")
 			for(i=0;i<json.results.length;i++)
@@ -54,22 +58,22 @@ var xhr = new XMLHttpRequest();
 			
 			var btn = document.createElement("Div");
 			btn.style.border = " solid #0000FF"
-btn.id=json.results[i].id
+			btn.id=json.results[i].id
 	// Create a <button> element
-btn.innerHTML = json.results[i].text+"<br><br>";                   // Insert text
-res.appendChild(btn);  
+			btn.innerHTML = json.results[i].text+"<br><br>";                   // Insert text
+			res.appendChild(btn);  
 			
 			}
-			for(i=0;i<json.passages.length;i++)
+			for(i=0;i<json.results.length;i++)
 			{
 			
 			var btn = document.createElement("Div"); 
 			var a = document.createElement('a');
 			var txt=document.createTextNode("الانتقال للقرار");
 			a.appendChild(txt);
-			a.href = "#"+json.passages[i].document_id
+			a.href = "#"+json.results[i].id
 			
-btn.innerHTML = json.passages[i].passage_text+"<br><br>"; 
+btn.innerHTML = json.results[i].highlight.text+"<br><br>"; 
 btn.appendChild(a)                 // Insert text
 pes.appendChild(btn);  
 			
@@ -83,6 +87,41 @@ xhr.setRequestHeader("Authorization", "Basic " + btoa("apikey:eE2buJm65mc_FtHzbh
 xhr.send()
 }
 </script>
+<script src="https://assistant-web.watsonplatform.net/loadWatsonAssistantChat.js"></script>
+<script>
+  window.loadWatsonAssistantChat({
+    integrationID: "cfead0ab-97ce-4e06-b30e-8802baffa6c5", // The ID of this integration.
+    region: "eu-gb" // The region your integration is hosted in.
+  }).then(function(instance){
+    instance.render();
+  });
+</script>
+
+
+
+<script>
+ function myFunction()
+  {
+    var x = document.getElementById("cars").value;
+      window.loadWatsonAssistantChat({
+    integrationID: x, // The ID of this integration.
+    region: "eu-gb" // The region your integration is hosted in.
+  }).then(function(instance){
+    instance.render();
+  });
+    console.log(x)
+  }
+</script>
+اختر نوع الشات
+<br>
+<select id="cars">
+  <option value="cfead0ab-97ce-4e06-b30e-8802baffa6c5">اسرة</option>
+  <option value="4358cd6c-13ce-4466-b14c-5d6eb6d84d59">تجاري</option>
+  <option value="940eca77-a5e5-4c04-9342-9548fa480944">مدني</option>
+  <option value="3a324eab-53d7-4153-a24e-7cdfa85d6b24">اجتماعي</option>
+  <option value="cffe66e3-593a-43d7-8339-d6fcea50fa34">جنايات</option>
+</select>
+<button type="button"onclick="myFunction()">غير</button>
 	<br>
 	<br>
 	<br>
