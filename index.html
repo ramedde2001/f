@@ -32,12 +32,13 @@ div {
 var bu=document.getElementById("btn")
 bu.addEventListener("click",serch)
 function rovove(res)
-{var child = res.lastElementChild; 
-while (child) { 
+{
+	var child = res.lastElementChild; 
+	while (child) { 
             res.removeChild(child); 
             child = res.lastElementChild; 
         } 
-		}
+		}//end fonction
 function serch()
 {
 var st=document.getElementById("srt")
@@ -82,9 +83,10 @@ pes.appendChild(btn);
 			}
 			
         }
-    };
+    }//end serhe
+</script>
 	
-	</script>
+
 
 
 	<br>
