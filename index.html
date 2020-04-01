@@ -32,13 +32,12 @@ div {
 var bu=document.getElementById("btn")
 bu.addEventListener("click",serch)
 function rovove(res)
-{
-	var child = res.lastElementChild; 
-	while (child) { 
+{var child = res.lastElementChild; 
+while (child) { 
             res.removeChild(child); 
             child = res.lastElementChild; 
         } 
-		}//end fonction
+		}//delete child
 function serch()
 {
 var st=document.getElementById("srt")
@@ -83,10 +82,13 @@ pes.appendChild(btn);
 			}
 			
         }
-    }//end serhe
-</script>
+    };
 	
-
+	xhr.open("GET", "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/2513799b-9d19-40ab-b66d-053d045afb4f/v1/environments/0d630b27-86da-4b56-b899-2945feb51293/collections/d704429d-0d6d-47f1-b090-c1c33786fa74/query?version=2018-12-03&deduplicate=false&highlight=true&passages=true&passages.count=5&highlight=true&natural_language_query="+st.value);
+xhr.setRequestHeader("Authorization", "Basic " + btoa("apikey:eE2buJm65mc_FtHzbhlV0M-sgrnp8cGuLrsrLCxZoPvo"));
+xhr.send()
+}
+</script>
 
 
 	<br>
