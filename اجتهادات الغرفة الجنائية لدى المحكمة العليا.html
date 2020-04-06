@@ -1,0 +1,52 @@
+<html dir="rtl">
+<head>
+<meta charset="UTF-8" >
+<title>اجتهادات الغرفة الجنائية لدى المحكمة العليا </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+em    {color: red;}
+	
+
+div {
+  border: 1px solid powderblue;
+}
+</style>
+</head>
+<body>
+<img id="img" src="juris.jpg" alt="الغرفة الجزائية لدى المحكمة العليا " height="300" width="300">
+<br>
+الغرفة الجنائية لدى المحكمة العليا 
+<br>
+<input id="srt" / >
+<br>
+<Button id="btn">ابحث</Button>
+<div id="pesp"></div>
+<div id="resp"></div>
+
+<script>
+var bu=document.getElementById("btn")
+bu.addEventListener("click",serch)
+function serch()
+{
+var st=document.getElementById("srt")
+
+var xhr = new XMLHttpRequest();
+xhr.onload = function(e) {
+ if (this.readyState === 4) {
+
+ var div=document.getElementById("pesp")
+ var res=JSON.parse(e.target.responseText)
+ 
+ div.innerHTML=res.hello
+ }//end if
+
+}//end function on load
+xhr.open("GET", "https://lowapi.herokuapp.com/"+st.value);
+
+xhr.send()
+}//end function search
+</script>
+</body>
+</html>
