@@ -13,6 +13,10 @@ em    {color: red;}
 #title {
 alt:center;
 }
+div#hid
+{
+background:red
+}
 
 div {
   border: 1px solid powderblue;
@@ -89,27 +93,51 @@ var xhr = new XMLHttpRequest();
 			for(i=0;i<json.results.length;i++)
 			{
 			
-			var btn = document.createElement("Div");
-			btn.style.border = " solid #0000FF"
-			btn.id=json.results[i].id
-	// Create a <button> element
-			btn.innerHTML = json.results[i].text+"<br><br>";                   // Insert text
-			res.appendChild(btn);  
+			
 			
 			
 			
 			var btn = document.createElement("Div"); 
-			var a = document.createElement('a');
-			var txt=document.createTextNode("الانتقال للقرار");
-			a.appendChild(txt);
-			a.href = "#"+json.results[i].id
+			var hid_div=document.createElement("Div")
+			hid_div.innerHTML=json.results[i].text
+			hid_div.style="display:none"
+			hid_div.border = " solid #0000FF"
+			hid_div.id="hid"
 			
-btn.innerHTML = json.results[i].highlight.text+"<br><br>"; 
-btn.appendChild(a)                 // Insert text
-pes.appendChild(btn);  
+			
+			var but_text=document.createTextNode("إظهار القرار");
+			var but_to_hid=document.createElement('Button');
+			but_to_hid.show=true
+			but_to_hid.addEventListener("click",function(event){
+			var childs=event.target.parentElement.children
+			childs= Array.from(childs);
+			console.log(but_to_hid.show)
+			for (i in childs)
+			{
+			if(childs[i].id=="hid")
+			{
+			if(childs[i].show==true)
+			childs[i].style=""
+			else
+			childs[i].style="display:none"
+			childs[i].show=!childs[i].show
+			
 			
 			}
 			}
+			
+			}//end function
+			)//end add event
+			but_to_hid.appendChild(but_text)
+			
+			btn.innerHTML = json.results[i].highlight.text+"<br><br>"; 
+			
+			btn.appendChild(but_to_hid)// Insert text
+			btn.appendChild(hid_div)
+			pes.appendChild(btn);  
+			
+			}//end for
+			}//end if
 			else
 			{
 			var btn = document.createElement("Div");
