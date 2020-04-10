@@ -17,7 +17,9 @@ div#hid
 {
 background:red
 }
-
+.white-space-pre {
+    white-space: pre-wrap;
+}
 div {
   border: 1px solid powderblue;
 }
@@ -101,6 +103,7 @@ var xhr = new XMLHttpRequest();
 			var hid_div=document.createElement("Div")
 			hid_div.innerHTML=json.results[i].text
 			hid_div.style="display:none"
+			hid_div.classList.add("white-space-pre");
 			hid_div.border = " solid #0000FF"
 			hid_div.id="hid"
 			
@@ -128,6 +131,7 @@ var xhr = new XMLHttpRequest();
 			
 			}//end function
 			)//end add event
+			
 			but_to_hid.appendChild(but_text)
 			
 			btn.innerHTML = json.results[i].highlight.text+"<br><br>"; 
