@@ -54,6 +54,10 @@ background:#d6CFC7
 <div id="pesp"></div>
 <div id="resp"></div>
 <script>
+var xhr1 = new XMLHttpRequest();
+xhr1.open("GET", "https://lowapi.herokuapp.com/count");
+xhr1.send()
+
 const selectElement = document.getElementById('cho');
 var root="https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/2513799b-9d19-40ab-b66d-053d045afb4f/v1/environments/0d630b27-86da-4b56-b899-2945feb51293/collections/d704429d-0d6d-47f1-b090-c1c33786fa74/query?version=2018-12-03&deduplicate=false&highlight=true&passages=true&passages.count=5&highlight=true&natural_language_query=";
 var index=0
@@ -124,9 +128,10 @@ var xhr = new XMLHttpRequest();
 			if(childs[i].show==true)
 			childs[i].style=""
 			else
+			{
 			childs[i].style="display:none"
 			childs[i].show=!childs[i].show
-			
+			}
 			
 			}
 			}
@@ -177,7 +182,5 @@ xhr.send()
 	<br>
 <br>
 
- <a href='https://www.free-counters.org/'>free Hit Counter</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a273e863297153e87afb32004e966d3e02cb6b51'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/646350/t/3"></script>
 	</body>
 <html>
