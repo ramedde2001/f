@@ -138,7 +138,10 @@ var xhr = new XMLHttpRequest();
 			if(childs[i].id=="hid")
 			{
 			if(childs[i].show==true)
+			{
 			childs[i].style=""
+			childs[i].show=!childs[i].show
+			}
 			else
 			{
 			childs[i].style="display:none"
