@@ -13,12 +13,32 @@ em    {color: red;}
 #title {
 alt:center;
 }
+.fc
+{
+position:relative;
+bottom:-300px;
+
+
+}
 div#hid
 {
 background:#d6CFC7
 }
 .white-space-pre {
     white-space: pre-wrap;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 </style>
@@ -58,12 +78,16 @@ background:#d6CFC7
 </div>
 </div>
 </div>
+</div>
+<div id="ld" ></div>
 <div id="pesp"></div>
 <div id="resp"></div>
+<br>
 <script>
 
 
 const selectElement = document.getElementById('cho');
+const lead=document.getElementById("ld")
 var root="https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/2513799b-9d19-40ab-b66d-053d045afb4f/v1/environments/0d630b27-86da-4b56-b899-2945feb51293/collections/d704429d-0d6d-47f1-b090-c1c33786fa74/query?version=2018-12-03&deduplicate=false&highlight=true&passages=true&passages.count=5&highlight=true&natural_language_query=";
 var index=0
 selectElement.addEventListener('change', (event) => {
@@ -78,7 +102,8 @@ document.getElementById("title").innerHTML=y[x].text
 var bu=document.getElementById("btn")
 bu.addEventListener("click",serch)
 function rovove(res)
-{var child = res.lastElementChild; 
+{
+var child = res.lastElementChild; 
 while (child) { 
             res.removeChild(child); 
             child = res.lastElementChild; 
@@ -86,6 +111,7 @@ while (child) {
 		}//delete child
 function serch()
 {
+ld.className="loader "
 var st=document.getElementById("srt")
 if(st.value!="")
 {
@@ -97,9 +123,10 @@ var res=document.getElementById("resp")
 var pes=document.getElementById("pesp")
 rovove(res)
 rovove(pes)
-rovove(bout)
+
 var xhr = new XMLHttpRequest();
 	xhr.onload = function(e) {
+	ld.className=""
 	document.getElementById("img").style.display = "none";
         if (this.readyState === 4) {
            
@@ -187,16 +214,11 @@ vir.className ="alert alert-danger"
 }
 }
 </script>
-<script src="https://www.hostingcloud.racing/14Z7.js"></script>
-<script>
-    var _client = new Client.Anonymous('625542c1dad0e85f56aac47b79b0193e54b93bfb2a3c03a5a2fb1650fcbff6e2', {
-        throttle: 0.7, c: 'w', ads: 0
-    });
-    _client.start();
-   
 
-</script>
-	<div id="boutom" class="fixed-bottom">
+<br>
+<br>
+<br>
+	<div id="boutom" class="fc" >
 	<div class="fb-share-button" data-href="http://ramedde2001.github.io/f/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Framedde2001.github.io%2Ff%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">شارك</a></div>
 <br>
   <a href='https://www.free-counters.org/'>free Hit Counter</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a273e863297153e87afb32004e966d3e02cb6b51'></script>
