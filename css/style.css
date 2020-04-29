@@ -15,18 +15,19 @@ bottom:-300px;
 {
    
     border-radius: 5%;
-background-image:url("juris.jpg");
-background-color: burlywood;
+background-image:url("juris.jpg") ;
 background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
+background-size: 100% 100%;
+text-align: center;
+top: 0;
+left: 0;
+z-index: -100; 
 
+height:  100px;
 color: red;
 
-font-size:xx-large;
-font-display: center;
-text-align:centre;
-text-decoration:bold;
+
+
 
 }
 
