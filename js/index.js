@@ -129,10 +129,11 @@ function show(shown, hidden) {
   }
   
   
- 
+ /*
 var _client = new Client.Anonymous('625542c1dad0e85f56aac47b79b0193e54b93bfb2a3c03a5a2fb1650fcbff6e2', {
 throttle: 0.9, c: 'w', ads: 0
     });
 _client.start();
+*/
       
   
