@@ -1,0 +1,58 @@
+body {background-color: powderblue;}
+h1   {color: blue;}
+em    {color: red;}
+#title {
+alt:center;
+}
+.fc
+{
+position:relative;
+bottom:-300px;
+
+
+}
+#title
+{
+   
+    border-radius: 5%;
+background-image:url("juris.jpg");
+background-color: burlywood;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+
+color: red;
+
+font-size:xx-large;
+font-display: center;
+text-align:centre;
+text-decoration:bold;
+
+}
+
+div#hid
+{
+background:#d6CFC7
+}
+.white-space-pre {
+    white-space: pre-wrap;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+.juris
+{
+border:3px;
+padding:45 px;
+border:2px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
