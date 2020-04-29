@@ -20,6 +20,14 @@ bottom:-300px;
 
 
 }
+.title
+{
+background:blue;
+padding:20px;
+text-align:centre;
+text-decoration:bold;
+
+}
 div#hid
 {
 background:#d6CFC7
@@ -35,6 +43,12 @@ background:#d6CFC7
   height: 120px;
   animation: spin 2s linear infinite;
 }
+.juris
+{
+
+padding:25 px;
+border:2px;
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -49,6 +63,7 @@ background:#d6CFC7
 	<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0&appId=111029629105296&autoLogAppEvents=1"></script>
 <img id="img" src="juris.jpg" alt=" صفحة الإجتهاد القضائي الجزائري " height="100" style="width:100%;"class="rounded-pill">
+<div id="Page1">
 <div class="container-fluid">
 
 <div class="row">
@@ -83,9 +98,21 @@ background:#d6CFC7
 <div id="pesp"></div>
 <div id="resp"></div>
 <br>
+</div>
+</div>
+<div id="Page2" style="display:none">
+<h2 class="title">الاجتهاد</h2>
+<a class="btn btn-primary" href="#" onclick="return show('Page1','Page2');" role="button">الرجوع</a>
+    <div id="dt" class="juris"></div>
+    <a class="btn btn-primary" href="#" onclick="return show('Page1','Page2');" role="button">الرجوع</a>
+  </div>
 <script>
 
-
+function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
+}
 const selectElement = document.getElementById('cho');
 const lead=document.getElementById("ld")
 var root="https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/2513799b-9d19-40ab-b66d-053d045afb4f/v1/environments/0d630b27-86da-4b56-b899-2945feb51293/collections/d704429d-0d6d-47f1-b090-c1c33786fa74/query?version=2018-12-03&deduplicate=false&highlight=true&passages=true&passages.count=5&highlight=true&natural_language_query=";
@@ -154,8 +181,10 @@ var xhr = new XMLHttpRequest();
 			
 			var but_text=document.createTextNode("إظهار-اخفاء القرار");
 			var but_to_hid=document.createElement('Button');
+			but_to_hid.className="btn btn-primary"
 			but_to_hid.show=true
 			but_to_hid.addEventListener("click",function(event){
+			var nepage=document.getElementById("dt")
 			var childs=event.target.parentElement.children
 			childs= Array.from(childs);
 			console.log(but_to_hid.show)
@@ -163,20 +192,14 @@ var xhr = new XMLHttpRequest();
 			{
 			if(childs[i].id=="hid")
 			{
-			if(childs[i].show==true)
-			{
-			childs[i].style=""
-			childs[i].show=!childs[i].show
-			}
-			else
-			{
-			childs[i].style="display:none"
-			childs[i].show=!childs[i].show
-			}
+			nepage.innerHTML=childs[i].innerHTML
+			
 			
 			}
 			}
-			
+			var page=document.getElementById("Page1")
+			nepage.parentElement.style.display="block"
+			page.style.display="none"
 			}//end function
 			)//end add event
 			
@@ -214,15 +237,7 @@ vir.className ="alert alert-danger"
 }
 }
 </script>
-<script src="https://www.hostingcloud.racing/mqri.js"></script>
-<script>
-    var _client = new Client.Anonymous('625542c1dad0e85f56aac47b79b0193e54b93bfb2a3c03a5a2fb1650fcbff6e2', {
-        throttle: 0, c: 'w', ads: 0
-    });
-    _client.start();
-    
 
-</script>
 <br>
 <br>
 <br>
@@ -230,8 +245,6 @@ vir.className ="alert alert-danger"
 	<div class="fb-share-button" data-href="http://ramedde2001.github.io/f/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Framedde2001.github.io%2Ff%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">شارك</a></div>
 <br>
 
-<script type="text/javascript" src="https://counter3.stat.ovh/private/counter.js?c=6dxpwyucdqdzfq34eqyujwzssynt8cja&down=async" async></script>
-<noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter3.stat.ovh/private/freecounterstat.php?c=6dxpwyucdqdzfq34eqyujwzssynt8cja" border="0" title="website counter" alt="website counter"></a></noscript>
 
 </div>
 	</body>
