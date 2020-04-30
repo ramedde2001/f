@@ -1,9 +1,7 @@
 body {background-color: powderblue;}
 h1   {color: blue;}
 em    {color: red;}
-#title {
-alt:center;
-}
+
 .fc
 {
 position:relative;
@@ -22,7 +20,8 @@ text-align: center;
 top: 0;
 left: 0;
 z-index: -100; 
-
+text-align: justify;
+margin-bottom: 20px;
 height:  100px;
 color: red;
 
