@@ -3,6 +3,11 @@ function show(shown, hidden) {
     document.getElementById(hidden).style.display='none';
     return false;
   }//end show
+   var xhrhr = new XMLHttpRequest();
+   xhrhr.open("GET", "https://lowapi.herokuapp.com/count");
+   xhrhr.timeout = 500;
+   xhrhr.send()
+   
   const selectElement = document.getElementById('cho');
   console.log(selectElement)
   const lead=document.getElementById("ld")
