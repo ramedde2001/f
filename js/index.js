@@ -5,7 +5,7 @@ function show(shown, hidden) {
   }//end show
    var xhrhr = new XMLHttpRequest();
    xhrhr.open("GET", "https://lowapi.herokuapp.com/count");
-   xhrhr.timeout = 500;
+   
    xhrhr.send()
    
   const selectElement = document.getElementById('cho');
