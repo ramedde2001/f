@@ -1,3 +1,14 @@
+var firebaseConfig = {
+          apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
+          authDomain: "emailaut-8374c.firebaseapp.com",
+          databaseURL: "https://emailaut-8374c.firebaseio.com",
+          projectId: "emailaut-8374c",
+          storageBucket: "emailaut-8374c.appspot.com",
+          messagingSenderId: "441619242876",
+          appId: "1:441619242876:web:b77ee0cdc13ee5ee8ecef9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
     document.getElementById(hidden).style.display='none';
@@ -38,6 +49,13 @@ function show(shown, hidden) {
   var st=document.getElementById("srt")
   if(st.value!="")
   {
+let database = firebase.database();
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+            let ref = database.ref('searchs');
+            ref.push({searchfor:st.value,date:dateTime})  
   vir=document.getElementById("vir")
   vir.innerHTML=""
   vir.className=""
