@@ -1,3 +1,5 @@
+
+
 var firebaseConfig = {
           apiKey: "AIzaSyA3YltChWDcrQjZhgrv5O_df5VeA1CcVRo",
           authDomain: "emailaut-8374c.firebaseapp.com",
@@ -34,6 +36,19 @@ function show(shown, hidden) {
   document.getElementById("title").innerHTML=y[x].text
   });
   var bu=document.getElementById("btn")
+  const queryString = window.location.search
+  var urlParams=null;
+if(queryString!="")
+{
+    urlParams = new URLSearchParams(queryString);
+    const word = urlParams.get('search');
+    var st=document.getElementById("srt")
+    if(word!=null)
+    {
+        st.value=word;
+    serch()
+    }
+}
   bu.addEventListener("click",serch)
   function rovove(res)
   {
@@ -49,6 +64,12 @@ function show(shown, hidden) {
   var st=document.getElementById("srt")
   if(st.value!="")
   {
+    if ('URLSearchParams' in window) {
+        var searchParams = new URLSearchParams(window.location.search);
+        searchParams.set("search",st.value);
+        var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+        history.pushState(null, '', newRelativePathQuery);
+    }
 let database = firebase.database();
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
